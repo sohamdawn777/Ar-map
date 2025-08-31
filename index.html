@@ -1,0 +1,22 @@
+<!DOCTYPE hyml>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.2/aframe/build/aframe-ar.min.js"></script>
+</head>
+<body>
+<a-scene embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false"
+vr-mode-ui="enabled: false">
+<a-marker preset="hiro">
+<a-entity gltf-model="url(https://raw.githubusercontent.com/sohamdawn777/Ar_Map/main/scene.glb)"
+scale="1 1 1"
+position="0 0 0">
+</a-entity>
+</a-marker>
+<a-camera></a-camera>
+</a-scene>
+</body>
+</html>
