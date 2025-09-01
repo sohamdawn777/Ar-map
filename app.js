@@ -62,7 +62,9 @@ document.body.appendChild(renderer.domElement);
 renderer.xr.enabled= true;
 navigator.xr.requestSession({"immersive-ar", {requiredFeatures: ["hit-test"]});
 
-document.body.appendChild(ARButton.createButton(renderer));
+marker.on("popupopen", 
+
+//document.body.appendChild(ARButton.createButton(renderer));
 
 xrSession.requestReferenceSpace("local");
 xrSession.requestHitTestSource({space: "viewerSpace"});
