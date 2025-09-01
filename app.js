@@ -62,7 +62,12 @@ document.body.appendChild(renderer.domElement);
 renderer.xr.enabled= true;
 navigator.xr.requestSession({"immersive-ar", {requiredFeatures: ["hit-test"]});
 
-document.body.appendChild(ARButton.createButton(renderer));
+const arBtn= ARButton.createButton(renderer);
+arBtn.style.position= "fixed";
+arBtn.style.bottom= 20px;
+arBtn.style.right= 20px;
+arBtn.style.zIndex= 
+document.body.appendChild(arBtn);
 
 xrSession.requestReferenceSpace("local");
 xrSession.requestHitTestSource({space: "viewerSpace"});
