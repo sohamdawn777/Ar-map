@@ -17,9 +17,20 @@ marker.bindPopup(`<p>This is sample text.</p>`, { maxWidth: 200, minWidth: 50, a
 });
 
 const scene= new THREE.Scene();
+
 const camera= new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
 scene.add(camera);
+
+const ambLight= new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambLight);
+
+const dirLight= new THREE.DirectionalLight(0xffffff, 0.8);
+dirLight.position.set(5, 10, 5);
+scene.add(dirLight);
+
 const renderer= new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+
+
 
