@@ -66,7 +66,7 @@ const arBtn= ARButton.createButton(renderer);
 arBtn.style.position= "fixed";
 arBtn.style.bottom= 20px;
 arBtn.style.right= 20px;
-arBtn.style.zIndex= 
+arBtn.style.zIndex= 9999;
 document.body.appendChild(arBtn);
 
 xrSession.requestReferenceSpace("local");
