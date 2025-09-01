@@ -84,9 +84,7 @@ const model= new THREE.GLTFLoader();
 model.load("https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model.glb", onLoad, onProgress, onError);
 
 if (arBtn) {
-
 marker.on("popupopen", showButton);
-
 }
 
 
