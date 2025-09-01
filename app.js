@@ -42,7 +42,7 @@ const map= L.map("map", { center: [22.526911,88.377648], zoom: 19, maxZoom: 19, 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 19, minZoom: 1, tms: false }).addTo(map);
 
 const marker = L.marker([22.526911,88.377648], { 
-    icon: L.icon({ iconUrl: "graffitiIco.png", iconSize: [32,32], iconAnchor: [16,32], popupAnchor: [0,-32] }),
+    icon: L.icon({ iconUrl: "Icon.png", iconSize: [32,32], iconAnchor: [16,32], popupAnchor: [0,-32] }),
     title: "Graffiti Spot", draggable: false, riseOnHover: true }).addTo(map);
 
 marker.bindPopup(`<p>This is sample text.</p>`, { maxWidth: 200, minWidth: 50, autoPan: true, closeButton: true, keepInView: true });
