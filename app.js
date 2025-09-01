@@ -66,7 +66,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 renderer.xr.enabled= true;
-navigator.xr.requestSession({"immersive-ar", {requiredFeatures: ["hit-test"]});
+navigator.xr.requestSession("immersive-ar", {requiredFeatures: ["hit-test"]});
 
 const arBtn= ARButton.createButton(renderer);
 arBtn.id="AR";
