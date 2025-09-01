@@ -2,6 +2,12 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.m
   import { ARButton } from "https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/webxr/ARButton.js";
   import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/loaders/GLTFLoader.js";
 
+function showButton() {
+
+document.querySelector("AR").style.visibility= "non-hidden";
+
+}
+
 function onLoad(gltf) {
 
 document.getElementById("loader-element").style.visibility= "hidden";
@@ -63,6 +69,8 @@ renderer.xr.enabled= true;
 navigator.xr.requestSession({"immersive-ar", {requiredFeatures: ["hit-test"]});
 
 const arBtn= ARButton.createButton(renderer);
+arBtn.id="AR";
+arBtn.style.visibility= "hidden";
 arBtn.style.position= "fixed";
 arBtn.style.bottom= "20px";
 arBtn.style.right= "20px";
@@ -74,6 +82,12 @@ xrSession.requestHitTestSource({space: "viewerSpace"});
 
 const model= new THREE.GLTFLoader();
 model.load("https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model.glb", onLoad, onProgress, onError);
+
+if (arBtn) {
+
+marker.on("popupopen", showButton);
+
+}
 
 
 
