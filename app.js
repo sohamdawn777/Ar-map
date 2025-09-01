@@ -15,10 +15,9 @@ function onLoad(gltf) {
 document.getElementById("loader-element").style.visibility= "hidden";
 document.getElementById("progress-bar").style.visibility= "hidden";
 
-scene.add(gltf);
-
-gltf.position.set(0,0,0);
-gltf.scale.set(1,1,1);
+gltf.scene.position.set(0,0,0);
+gltf.scene.scale.set(1,1,1);
+scene.add(gltf.scene);
 
 renderer.setAnimationLoop(() => {
 renderer.render(scene, camera);
