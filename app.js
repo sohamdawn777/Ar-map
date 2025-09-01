@@ -47,8 +47,6 @@ const marker = L.marker([22.526911,88.377648], {
 
 marker.bindPopup(`<p>This is sample text.</p>`, { maxWidth: 200, minWidth: 50, autoPan: true, closeButton: true, keepInView: true });
 
-});
-
 const scene= new THREE.Scene();
 
 const camera= new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -86,3 +84,5 @@ model.load("https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model.glb
 if (arBtn) {
 marker.on("popupopen", showButton);
 }
+
+});
