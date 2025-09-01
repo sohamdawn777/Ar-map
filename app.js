@@ -42,6 +42,9 @@ const space= await xrSession.requestReferenceSpace("local-floor");
 const source= await xrSession.requestHitTestSource({space: viewerSpace });
 
 renderer.setAnimationLoop(() => {
+renderer.render(scene, camera);
+});
+
 xrSession.addEventListener("select", (xrFrame) => {
 try {
 const result= xrFrame.getHitTestResults(source);
@@ -52,8 +55,6 @@ xrSession.addAnchor(pose, space);
 catch {
 
 }
-});
-renderer.render(scene, camera);
 });
 
 }
