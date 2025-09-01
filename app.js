@@ -38,6 +38,14 @@ glbLoader.load(currentMarker.options.modelUrl, onLoad, onProgress, onError);
 
 }
 
+function setupXR(event) {
+
+const xrSession= renderer.xr.getSession();
+xrSession.requestReferenceSpace("local-floor");
+xrSession.requestHitTestSource({space: "viewerSpace" });
+
+}
+
 const map= L.map("map", { center: [22.526911,88.377648], zoom: 19, maxZoom: 19, minZoom: 1 });
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 19, minZoom: 1, tms: false }).addTo(map);
@@ -85,6 +93,8 @@ arBtn.style.zIndex= 9999;
 arBtn.style.visibility= "hidden";
 document.body.appendChild(arBtn);
 arBtn.addEventListener("click", modelLoad);
+
+renderer.xr.addEventListener("sessions", setupXR);
 
 //xrSession.requestReferenceSpace("local");
 //xrSession.requestHitTestSource({space: "viewerSpace"});
