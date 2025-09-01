@@ -77,10 +77,10 @@ arBtn.style.zIndex= 9999;
 arBtn.style.visibility= "hidden";
 document.body.appendChild(arBtn);
 
-xrSession.requestReferenceSpace("local");
-xrSession.requestHitTestSource({space: "viewerSpace"});
+//xrSession.requestReferenceSpace("local");
+//xrSession.requestHitTestSource({space: "viewerSpace"});
 
-const model= new THREE.GLTFLoader();
+const model= new GLTFLoader();
 model.load("https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model.glb", onLoad, onProgress, onError);
 
 if (arBtn) {
