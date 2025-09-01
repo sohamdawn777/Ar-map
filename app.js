@@ -4,12 +4,6 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.m
 
 window.addEventListener("DOMContentLoaded", () => { 
 
-function showButton() {
-
-document.querySelector("#AR").style.visibility= "visible";
-
-}
-
 function onLoad(gltf) {
 
 document.getElementById("loader-element").style.visibility= "hidden";
@@ -95,7 +89,12 @@ arBtn.addEventListener("click", modelLoad);
 //xrSession.requestReferenceSpace("local");
 //xrSession.requestHitTestSource({space: "viewerSpace"});
 
+let currentMarker= null;
+
 if (arBtn) {
-marker.on("popupopen", showButton);
+marker.on("popupopen", () => {
+document.querySelector("#AR").style.visibility= "visible";
+currentMarker= marker;
+});
 }
 });
