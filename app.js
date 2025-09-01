@@ -38,6 +38,12 @@ err.innerHTML=`An Error Occurred: ${error}.`;
 
 }
 
+function modelLoad(event) {
+
+glbLoader.load(marker.options.modelUrl, onLoad, onProgress, onError);
+
+}
+
 const map= L.map("map", { center: [22.526911,88.377648], zoom: 19, maxZoom: 19, minZoom: 1 });
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 19, minZoom: 1, tms: false }).addTo(map);
@@ -48,7 +54,7 @@ for (let j of data) {
 
 const marker = L.marker([j.lat, j.lon], { 
     icon: L.icon({ iconUrl: "Icon.png", iconSize: [32,32], iconAnchor: [16,32], popupAnchor: [0,-32] }),
-    title: "Graffiti Spot", draggable: false, riseOnHover: true }).addTo(map);
+    title: "Graffiti Spot", draggable: false, riseOnHover: true, modelUrl: j.model }).addTo(map);
 
 marker.bindPopup(`<p>This is sample text.</p>`, { maxWidth: 200, minWidth: 50, autoPan: true, closeButton: true, keepInView: true });
 
@@ -72,6 +78,8 @@ document.body.appendChild(renderer.domElement);
 
 renderer.xr.enabled= true;
 
+const glbLoader= new GLTFLoader();
+
 //navigator.xr.requestSession("immersive-ar", {requiredFeatures: ["hit-test"]});
 
 const arBtn= ARButton.createButton(renderer);
@@ -82,11 +90,11 @@ arBtn.style.right= "20px";
 arBtn.style.zIndex= 9999;
 arBtn.style.visibility= "hidden";
 document.body.appendChild(arBtn);
+arBtn.addEventListener("click", modelLoad);
 
 //xrSession.requestReferenceSpace("local");
 //xrSession.requestHitTestSource({space: "viewerSpace"});
 
-const glbLoader= new GLTFLoader();
 for (let i of data) {
 glbLoader.load(i.model, onLoad, onProgress, onError);
 }
