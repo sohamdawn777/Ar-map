@@ -42,7 +42,7 @@ async function setupXR(event) {
 
 const xrSession= renderer.xr.getSession();
 const space= await xrSession.requestReferenceSpace("local-floor");
-const source= await xrSession.requestHitTestSource({space: "viewerSpace" });
+const source= await xrSession.requestHitTestSource({space: viewerSpace });
 
 }
 
