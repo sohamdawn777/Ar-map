@@ -37,6 +37,21 @@ glbLoader.load(currentMarker.options.modelUrl, onLoad, onProgress, onError);
 
 async function setupXR(event) {
 
+const arMessage = document.createElement("div");
+arMessage.id = "ar-message";
+arMessage.textContent = "Tap on a valid surface";
+arMessage.style.position = "fixed";
+arMessage.style.top = "20px";
+arMessage.style.left = "50%";
+arMessage.style.transform = "translateX(-50%)";
+arMessage.style.background = "rgba(0,0,0,0.6)";
+arMessage.style.color = "white";
+arMessage.style.padding = "8px 12px";
+arMessage.style.borderRadius = "8px";
+arMessage.style.fontFamily = "sans-serif";
+arMessage.style.zIndex = 9999;
+document.body.appendChild(arMessage);
+
 const xrSession= renderer.xr.getSession();
 const space= await xrSession.requestReferenceSpace("local-floor");
 const viewerSpace= await xrSession.requestReferenceSpace("viewer");
