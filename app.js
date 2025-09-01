@@ -95,10 +95,6 @@ arBtn.addEventListener("click", modelLoad);
 //xrSession.requestReferenceSpace("local");
 //xrSession.requestHitTestSource({space: "viewerSpace"});
 
-for (let i of data) {
-glbLoader.load(i.model, onLoad, onProgress, onError);
-}
-
 if (arBtn) {
 marker.on("popupopen", showButton);
 }
