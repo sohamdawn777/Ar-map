@@ -2,6 +2,16 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.m
   import { ARButton } from "https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/webxr/ARButton.js";
   import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/loaders/GLTFLoader.js";
 
+function onLoad(gltf) {
+
+gltf.position.set(0,0,0);
+gltf.scale.set(1,1,1);
+
+renderer.setAnimationLoop(() => {
+renderer.render(scene, camera);
+});
+}
+
 window.addEventListener("DOMContentLoaded", () => { 
 
 const map= L.map("map", { center: [22.526911,88.377648], zoom: 19, maxZoom: 19, minZoom: 1 });
@@ -41,6 +51,7 @@ xrSession.requestReferenceSpace("local");
 xrSession.requestHitTestSource({space: "viewerSpace"});
 
 const model= new THREE.GLTFLoader();
-model.load("https://raw.githubusercontent.com/sohamdawn777/Ar-Map/main/model.glb");
+model.load("https://raw.githubusercontent.com/sohamdawn777/Ar-Map/main/model.glb", onLoad, onProgress, onError);
+
 
 
