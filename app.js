@@ -42,7 +42,9 @@ const map= L.map("map", { center: [22.526911,88.377648], zoom: 19, maxZoom: 19, 
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 19, minZoom: 1, tms: false }).addTo(map);
 
-const marker = L.marker([{lat: 22.526911, lon: 88.377648, glb: "https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model1.glb"}, {lat: 22.5999666, lon: 88.3729349, glb: "https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model2.glb"}, {lat: 22.56492395, lon: 88.35405545738757, glb: "https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model3.glb"}], { 
+let data= [{lat: 22.526911, lon: 88.377648, glb: "https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model1.glb"}, {lat: 22.5999666, lon: 88.3729349, glb: "https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model2.glb"}, {lat: 22.56492395, lon: 88.35405545738757, glb: "https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model3.glb"}];
+
+const marker = L.marker(data, { 
     icon: L.icon({ iconUrl: "Icon.png", iconSize: [32,32], iconAnchor: [16,32], popupAnchor: [0,-32] }),
     title: "Graffiti Spot", draggable: false, riseOnHover: true }).addTo(map);
 
@@ -81,7 +83,9 @@ document.body.appendChild(arBtn);
 //xrSession.requestHitTestSource({space: "viewerSpace"});
 
 const model= new GLTFLoader();
-model.load("https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model.glb", onLoad, onProgress, onError);
+for (i of data) {
+model.load(i.glb, onLoad, onProgress, onError);
+}
 
 if (arBtn) {
 marker.on("popupopen", showButton);
