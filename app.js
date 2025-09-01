@@ -13,9 +13,6 @@ gltf.scene.position.set(0,0,0);
 gltf.scene.scale.set(1,1,1);
 scene.add(gltf.scene);
 
-renderer.setAnimationLoop(() => {
-renderer.render(scene, camera);
-});
 }
 
 function onProgress(xhr) {
@@ -50,8 +47,13 @@ xrSession.addEventListener("select", () => {
 try {
 const result= xrFrame.getHitTestResults(source);
 const pose= result.getPose(space);
-const coords= pose.transform.position;
+//const coords= pose.transform.position;
+
 xrSession.addAnchor(pose, space);
+
+renderer.setAnimationLoop(() => {
+renderer.render(scene, camera);
+});
 }
 catch {
 
