@@ -4,6 +4,9 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.m
 
 function onLoad(gltf) {
 
+document.getElementById("loader-element").style.visibility= "hidden";
+document.getElementById("progress-bar").style.visibility= "hidden";
+
 gltf.position.set(0,0,0);
 gltf.scale.set(1,1,1);
 
