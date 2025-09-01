@@ -39,7 +39,7 @@ async function setupXR(event) {
 
 const xrSession= renderer.xr.getSession();
 const space= await xrSession.requestReferenceSpace("local-floor");
-const viewerSpace= xrSession.requestReferenceSpace("viewer");
+const viewerSpace= await xrSession.requestReferenceSpace("viewer");
 const source= await xrSession.requestHitTestSource({space: viewerSpace });
 
 renderer.setAnimationLoop(() => {
