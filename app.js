@@ -41,6 +41,6 @@ xrSession.requestReferenceSpace("local");
 xrSession.requestHitTestSource({space: "viewerSpace"});
 
 const model= new THREE.GLTFLoader();
-
+model.load("https://raw.githubusercontent/sohamdawn777/main/);
 
 
