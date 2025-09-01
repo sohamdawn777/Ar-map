@@ -116,9 +116,9 @@ document.body.appendChild(renderer.domElement);
 
 renderer.xr.enabled= true;
 
-const glbLoader= new GLTFLoader();
+const glbLoader= new THREE.GLTFLoader();
 
-const arBtn= ARButton.createButton(renderer);
+const arBtn= THREE.ARButton.createButton(renderer);
 arBtn.id="AR";
 arBtn.style.position= "fixed";
 arBtn.style.bottom= "20px";
