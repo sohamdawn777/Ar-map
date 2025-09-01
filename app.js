@@ -51,11 +51,14 @@ try {
 const result= xrFrame.getHitTestResults(source);
 const pose= result.getPose(space);
 const coords= pose.transform.position;
+xrSession.addAnchor(pose, space);
 }
 catch {
 
 }
-}
+});
+
+
 
 }
 
