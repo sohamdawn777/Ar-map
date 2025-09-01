@@ -40,6 +40,7 @@ document.body.appendChild(ARButton.createButton(renderer));
 xrSession.requestReferenceSpace("local");
 xrSession.requestHitTestSource({space: "viewerSpace"});
 
+const model= new THREE.GLTFLoader();
 
 
 
