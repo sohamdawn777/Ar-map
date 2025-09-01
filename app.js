@@ -82,8 +82,6 @@ renderer.xr.enabled= true;
 
 const glbLoader= new GLTFLoader();
 
-//navigator.xr.requestSession("immersive-ar", {requiredFeatures: ["hit-test"]});
-
 const arBtn= ARButton.createButton(renderer);
 arBtn.id="AR";
 arBtn.style.position= "fixed";
@@ -95,9 +93,6 @@ document.body.appendChild(arBtn);
 arBtn.addEventListener("click", modelLoad);
 
 renderer.xr.addEventListener("sessions", setupXR);
-
-//xrSession.requestReferenceSpace("local");
-//xrSession.requestHitTestSource({space: "viewerSpace"});
 
 let currentMarker= null;
 
