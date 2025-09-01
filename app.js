@@ -15,6 +15,8 @@ function onLoad(gltf) {
 document.getElementById("loader-element").style.visibility= "hidden";
 document.getElementById("progress-bar").style.visibility= "hidden";
 
+scene.add(gltf);
+
 gltf.position.set(0,0,0);
 gltf.scale.set(1,1,1);
 
