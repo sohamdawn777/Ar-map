@@ -16,6 +16,10 @@ function onProgress(xhr) {
 
 }
 
+function onError(error) {
+
+}
+
 window.addEventListener("DOMContentLoaded", () => { 
 
 const map= L.map("map", { center: [22.526911,88.377648], zoom: 19, maxZoom: 19, minZoom: 1 });
