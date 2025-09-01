@@ -16,8 +16,8 @@ marker.bindPopup(`<p>This is sample text.</p>`, { maxWidth: 200, minWidth: 50, a
 
 });
 
-const scene= new THREE.scene();
-const camera= new THREE.PerspectiveCamera({ fov: 60, aspect: window.innerWidth/window.innerHeight, near: 0.1, far: 1000 });
+const scene= new THREE.Scene();
+const camera= new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
 scene.add(camera);
 const renderer= new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
