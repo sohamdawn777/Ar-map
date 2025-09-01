@@ -2,6 +2,8 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.m
   import { ARButton } from "https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/webxr/ARButton.js";
   import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/loaders/GLTFLoader.js";
 
+window.addEventListener("DOMContentLoaded", () => { 
+
 function showButton() {
 
 document.querySelector("#AR").style.visibility= "visible";
@@ -35,8 +37,6 @@ err.innerHTML=`An Error Occurred: ${error}.`;
 
 }
 
-window.addEventListener("DOMContentLoaded", () => { 
-
 const map= L.map("map", { center: [22.526911,88.377648], zoom: 19, maxZoom: 19, minZoom: 1 });
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 19, minZoom: 1, tms: false }).addTo(map);
@@ -64,7 +64,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 renderer.xr.enabled= true;
-navigator.xr.requestSession("immersive-ar", {requiredFeatures: ["hit-test"]});
+
+//navigator.xr.requestSession("immersive-ar", {requiredFeatures: ["hit-test"]});
 
 const arBtn= ARButton.createButton(renderer);
 arBtn.id="AR";
