@@ -70,11 +70,11 @@ navigator.xr.requestSession({"immersive-ar", {requiredFeatures: ["hit-test"]});
 
 const arBtn= ARButton.createButton(renderer);
 arBtn.id="AR";
-arBtn.style.visibility= "hidden";
 arBtn.style.position= "fixed";
 arBtn.style.bottom= "20px";
 arBtn.style.right= "20px";
 arBtn.style.zIndex= 9999;
+arBtn.style.visibility= "hidden";
 document.body.appendChild(arBtn);
 
 xrSession.requestReferenceSpace("local");
