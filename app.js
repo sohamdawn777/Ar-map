@@ -45,12 +45,18 @@ renderer.setAnimationLoop(() => {
 renderer.render(scene, camera);
 });
 
+let anchorStatus= false;
 xrSession.addEventListener("select", (xrFrame) => {
 try {
 const result= xrFrame.getHitTestResults(source);
-const pose= result.getPose(space);
+if (result.length>0) {
+const pose= result[0].getPose(space);
 
 xrSession.addAnchor(pose, space);
+anchorStatus= true;
+}
+else {
+}
 }
 catch {
 
