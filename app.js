@@ -38,11 +38,11 @@ glbLoader.load(currentMarker.options.modelUrl, onLoad, onProgress, onError);
 
 }
 
-function setupXR(event) {
+async function setupXR(event) {
 
 const xrSession= renderer.xr.getSession();
 xrSession.requestReferenceSpace("local-floor");
-xrSession.requestHitTestSource({space: "viewerSpace" });
+const source= await xrSession.requestHitTestSource({space: "viewerSpace" });
 
 }
 
