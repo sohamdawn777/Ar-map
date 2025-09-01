@@ -4,7 +4,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.m
 
 function showButton() {
 
-document.querySelector("AR").style.visibility= "non-hidden";
+document.querySelector("#AR").style.visibility= "visible";
 
 }
 
