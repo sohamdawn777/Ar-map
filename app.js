@@ -14,6 +14,9 @@ renderer.render(scene, camera);
 
 function onProgress(xhr) {
 
+let progressBar= document.getElementById("progress-bar");
+progressBar.style.width= ((xhr.loaded/xhr.total)*100).toFixed(2) + "%";
+
 }
 
 function onError(error) {
