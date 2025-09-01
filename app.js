@@ -84,5 +84,4 @@ model.load("https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model.glb
 if (arBtn) {
 marker.on("popupopen", showButton);
 }
-
 });
