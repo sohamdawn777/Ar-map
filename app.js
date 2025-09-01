@@ -41,6 +41,6 @@ xrSession.requestReferenceSpace("local");
 xrSession.requestHitTestSource({space: "viewerSpace"});
 
 const model= new THREE.GLTFLoader();
-model.load("https://raw.githubusercontent/sohamdawn777/main/);
+model.load("https://raw.githubusercontent.com/sohamdawn777/Ar-Map/main");
 
 
