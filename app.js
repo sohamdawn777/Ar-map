@@ -41,26 +41,20 @@ const xrSession= renderer.xr.getSession();
 const space= await xrSession.requestReferenceSpace("local-floor");
 const source= await xrSession.requestHitTestSource({space: viewerSpace });
 
-const coords= xrFrame.getHitTestResults(source);
-
+renderer.setAnimationLoop(() => {
 xrSession.addEventListener("select", (xrFrame) => {
 try {
 const result= xrFrame.getHitTestResults(source);
 const pose= result.getPose(space);
-//const coords= pose.transform.position;
 
 xrSession.addAnchor(pose, space);
-
-renderer.setAnimationLoop(() => {
-renderer.render(scene, camera);
-});
 }
 catch {
 
 }
 });
-
-
+renderer.render(scene, camera);
+});
 
 }
 
