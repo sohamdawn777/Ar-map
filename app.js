@@ -41,7 +41,7 @@ glbLoader.load(currentMarker.options.modelUrl, onLoad, onProgress, onError);
 async function setupXR(event) {
 
 const xrSession= renderer.xr.getSession();
-xrSession.requestReferenceSpace("local-floor");
+const space= await xrSession.requestReferenceSpace("local-floor");
 const source= await xrSession.requestHitTestSource({space: "viewerSpace" });
 
 }
@@ -92,7 +92,7 @@ arBtn.style.visibility= "hidden";
 document.body.appendChild(arBtn);
 arBtn.addEventListener("click", modelLoad);
 
-renderer.xr.addEventListener("sessions", setupXR);
+renderer.xr.addEventListener("sessionstart", setupXR);
 
 let currentMarker= null;
 
