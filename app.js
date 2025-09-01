@@ -34,7 +34,7 @@ err.innerHTML=`An Error Occurred: ${error}.`;
 
 function modelLoad(event) {
 
-glbLoader.load(marker.options.modelUrl, onLoad, onProgress, onError);
+glbLoader.load(currentMarker.options.modelUrl, onLoad, onProgress, onError);
 
 }
 
