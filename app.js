@@ -21,6 +21,8 @@ progressBar.style.width= ((xhr.loaded/xhr.total)*100).toFixed(2) + "%";
 
 function onError(error) {
 
+
+
 }
 
 window.addEventListener("DOMContentLoaded", () => { 
