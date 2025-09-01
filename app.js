@@ -49,7 +49,7 @@ let anchorStatus= false;
 xrSession.addEventListener("select", (xrFrame) => {
 try {
 const result= xrFrame.getHitTestResults(source);
-if (result.length>0) {
+if (result.length>0 && anchorStatus=== false) {
 const pose= result[0].getPose(space);
 
 xrSession.addAnchor(pose, space);
