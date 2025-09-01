@@ -37,6 +37,9 @@ navigator.xr.requestSession({"immersive-ar", {requiredFeatures: ["hit-test"]});
 
 document.body.appendChild(ARButton.createButton(renderer));
 
+xrSession.requestReferenceSpace("local");
+xrSession.requestHitTestSource({space: "viewspace"});
+
 
 
 
