@@ -44,11 +44,15 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 19, 
 
 let data= [{lat: 22.526911, lon: 88.377648, model: "https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model1.glb"}, {lat: 22.5999666, lon: 88.3729349, model: "https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model2.glb"}, {lat: 22.56492395, lon: 88.35405545738757, model: "https://raw.githubusercontent.com/sohamdawn777/Ar-map/main/model3.glb"}];
 
-const marker = L.marker(data, { 
+for (let j of data) {
+
+const marker = L.marker([j.lat, j.lon], { 
     icon: L.icon({ iconUrl: "Icon.png", iconSize: [32,32], iconAnchor: [16,32], popupAnchor: [0,-32] }),
     title: "Graffiti Spot", draggable: false, riseOnHover: true }).addTo(map);
 
 marker.bindPopup(`<p>This is sample text.</p>`, { maxWidth: 200, minWidth: 50, autoPan: true, closeButton: true, keepInView: true });
+
+}
 
 const scene= new THREE.Scene();
 
@@ -83,7 +87,7 @@ document.body.appendChild(arBtn);
 //xrSession.requestHitTestSource({space: "viewerSpace"});
 
 const glbLoader= new GLTFLoader();
-for (i of data) {
+for (let i of data) {
 glbLoader.load(i.model, onLoad, onProgress, onError);
 }
 
