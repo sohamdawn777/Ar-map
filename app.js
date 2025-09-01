@@ -39,7 +39,7 @@ async function setupXR(event) {
 
 const arMessage = document.createElement("div");
 arMessage.id = "ar-message";
-arMessage.textContent = "Tap on a valid surface";
+arMessage.textContent = "Tap on a valid surface (e.g: Table, Chair etc.).";
 arMessage.style.position = "fixed";
 arMessage.style.top = "20px";
 arMessage.style.left = "50%";
@@ -70,12 +70,18 @@ const pose= result[0].getPose(space);
 
 xrSession.addAnchor(pose, space);
 anchorStatus= true;
+
+arMessage.textContent= "Experience AR!";
+setTimeout(() => {
+arMessage.textContent="";}, 3000);
 }
 else {
 }
 }
 catch {
-
+arMessage.textContent= "Invalid surface chosen. Please select a valid surface.";
+setTimeout(() => {
+arMessage.textContent= "Tap on a valid surface (e.g: Table, Chair etc.).";}, 3000);
 }
 });
 
