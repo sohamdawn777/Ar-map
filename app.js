@@ -3,6 +3,6 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.m
   import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/loaders/GLTFLoader.js";
 
 const scene= new THREE.scene();
-const camera=new THREE.PerspectiveCamera({ fov: 60, aspect: window.innerWidth/window.innerHeight, near: 0.1, far: 1000 });
+const camera= new THREE.PerspectiveCamera({ fov: 60, aspect: window.innerWidth/window.innerHeight, near: 0.1, far: 1000 });
 
 
